@@ -24,7 +24,7 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 font pango:JetBrains Mono Bold 13
 
 # Program Bindings
-bindsym $mod+x swaylock
+bindsym $mod+x exec swaylock
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+a exec kitty -e alsamixer 
