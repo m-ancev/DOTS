@@ -105,6 +105,8 @@ in
     htop
     tmux
     thunderbird
+    lazygit
+    tree
     # languages
     python3
     lua
