@@ -13,6 +13,7 @@ set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
@@ -27,7 +28,7 @@ font pango:JetBrains Mono Bold 13
 bindsym $mod+x exec swaylock
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+a exec kitty -e alsamixer 
+bindsym $mod+Shift+a exec kitty -e alsamixer 
 bindsym $mod+Control+Shift+Alt+p exec --no-startup-id kitty -e poweroff 
 bindsym $mod+Control+Shift+Alt+r exec --no-startup-id kitty -e reboot 
 bindsym $mod+b exec firefox
