@@ -93,7 +93,6 @@ in
     neovim
     wget
     git
-    librewolf
     firefox
     kitty
     tldr
@@ -127,6 +126,7 @@ in
     slurp
     wl-clipboard
     mako
+    swaylock-effects
   ];
 
   services.gnome.gnome-keyring.enable = true;
