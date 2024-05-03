@@ -103,6 +103,7 @@ in
     unzip
     ripgrep
     htop
+    btop
     tmux
     thunderbird
     lazygit
