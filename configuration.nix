@@ -107,6 +107,7 @@ in
     thunderbird
     lazygit
     tree
+    tofi
     # languages
     python3
     lua
