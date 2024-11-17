@@ -10,7 +10,7 @@ in
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
     ];
 
@@ -19,15 +19,9 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
+  networking.wireless.iwd.enable = true;  # Enables wireless support
+  # networking.networkmanager.enable = true: # Fallback in case of issues
+ 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -51,6 +45,31 @@ in
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
+  # Enable udisks2 for managing USB drives and auto-mounting
+  services.udisks2.enable = true;
+
+  # Optional: Polkit rule to allow USB auto-mounting for "wheel" group users.
+  # Uncomment if future permission issues occur:
+  #
+  # security.polkit.extraRules = ''
+  #   polkit.addRule(function(action, subject) {
+  #       if (action.id == "org.freedesktop.udisks2.filesystem-mount" &&
+  #           subject.isInGroup("wheel")) {
+  #           return polkit.Result.YES;
+  #       }
+  #   });
+  # '';
+  #
+
+  # Notes:
+  # - USB auto-mounting works out of the box for "wheel" group users.
+  # - Polkit configuration is omitted for now but can be added for clarity
+  #   or if permission issues arise with future users or specific devices.
+
+  # To add a user to the "wheel" group:
+  #   sudo usermod -aG wheel <username>
+  # Log out and back in to apply group changes.
+ 
   # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -88,6 +107,7 @@ in
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.unstable = true;
 
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     neovim
@@ -108,20 +128,20 @@ in
     lazygit
     tree
     tofi
-    # languages
+    iwd
+    fzf
+    smartgithg
+    gnome.nautilus
+    udiskie
     python3
     lua
-    # nvim dep
     tree-sitter
     fd
     gnumake
-    unzip
     gcc
     luajitPackages.luarocks
     python311Packages.pip
-    #copilot dep
-    nodejs_20
-    # sway pkgs
+    nodejs_22
     grim
     slurp
     wl-clipboard
