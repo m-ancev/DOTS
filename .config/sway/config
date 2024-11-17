@@ -49,6 +49,9 @@ smart_borders on
 # output * bg /home/ma/Firefox/simon-lee-XX5RQgTuD8o-unsplash.jpg fill
 # output * bg /home/ma/Firefox/562651.jpg fill
 
+### Auto Mounting
+exec udiskie
+
 #
 # Example configuration:
 #
