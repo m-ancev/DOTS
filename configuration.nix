@@ -130,7 +130,7 @@ in
     tofi
     iwd
     fzf
-    smartgithg
+    sublime-merge
     gnome.nautilus
     udiskie
     python3
