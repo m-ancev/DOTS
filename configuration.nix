@@ -115,9 +115,14 @@ in
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.unstable = true;
 
+  environment.variables = {
+    XCURSOR_THEME = "adwaita-icon-theme";
+    XCURSOR_SIZE = "13";
+  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    adwaita-icon-theme
     mullvad-vpn
     neovim
     wget
@@ -166,6 +171,10 @@ in
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    extraSessionCommands = ''
+      export XCURSOR_THEME=adwaita-icon-theme
+      export XCURSOR_SIZE=13
+    '';
   };
 
   # kanshi systemd service

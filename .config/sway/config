@@ -25,6 +25,9 @@ set $menu tofi-run | xargs swaymsg exec --
 # Font
 font pango:JetBrains Mono Bold 13
 
+# Cursor
+seat * xcursor_theme Adwaita 13
+
 # Program Bindings
 bindsym $mod+x exec swaylock --screenshots --clock --datestr %Y-%m-%d --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 9x9 --ring-color 333333 --key-hl-color 999999 --line-color 00000000 --inside-color 000000 --separator-color 00000000 --text-color 999999 --grace 0 --fade-in 0 --font JetBrainsMono
 bindsym $mod+Tab workspace next
