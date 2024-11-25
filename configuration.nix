@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 let
@@ -18,8 +14,9 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   networking.wireless.iwd.enable = true;  # Enables wireless support
+  networking.useDHCP = true;
   # networking.networkmanager.enable = true: # Fallback in case of issues
  
   # Set your time zone.
@@ -82,10 +79,6 @@ in
   # To add a user to the "wheel" group:
   #   sudo usermod -aG wheel <username>
   # Log out and back in to apply group changes.
- 
-  # Sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # Needed for an app idk yet
   nixpkgs.config.permittedInsecurePackages = [
@@ -144,7 +137,7 @@ in
     iwd
     fzf
     sublime-merge
-    gnome.nautilus
+    nautilus
     udiskie
     python3
     lua
