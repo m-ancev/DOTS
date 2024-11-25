@@ -122,6 +122,7 @@ in
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    xfce.mousepad
     adwaita-icon-theme
     mullvad-vpn
     neovim
