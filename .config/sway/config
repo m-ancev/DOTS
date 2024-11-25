@@ -29,7 +29,7 @@ font pango:JetBrains Mono Bold 13
 bindsym $mod+x exec swaylock --screenshots --clock --datestr %Y-%m-%d --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 9x9 --ring-color 333333 --key-hl-color 999999 --line-color 00000000 --inside-color 000000 --separator-color 00000000 --text-color 999999 --grace 0 --fade-in 0 --font JetBrainsMono
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Shift+a exec kitty -e alsamixer 
+bindsym $mod+Shift+a exec pavucontrol
 bindsym $mod+Control+Shift+Alt+p exec --no-startup-id kitty -e poweroff
 bindsym $mod+Control+Shift+Alt+r exec --no-startup-id kitty -e reboot
 bindsym $mod+b exec firefox
