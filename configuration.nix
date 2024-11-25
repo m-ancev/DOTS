@@ -40,6 +40,19 @@ in
     LC_TIME = "de_DE.UTF-8";
   };
 
+  # Sound
+  # Enable PipeWire with ALSA, PulseAudio compatibility, and WirePlumber
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;        # Enables ALSA support
+    pulse.enable = true;       # Enables PulseAudio compatibility
+    jack.enable = true;        # Enables JACK support (optional)
+    wireplumber.enable = true; # Enables WirePlumber as the session manager
+  };
+
+  # Ensure ALSA state persistence across reboots
+  hardware.alsa.enablePersistence = true;
+
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
