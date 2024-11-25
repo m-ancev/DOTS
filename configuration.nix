@@ -14,10 +14,12 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Networking
   networking.hostName = "nixos";
   networking.wireless.iwd.enable = true;  # Enables wireless support
   networking.useDHCP = true;
   # networking.networkmanager.enable = true: # Fallback in case of issues
+  services.mullvad-vpn.enable = true;
  
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -116,6 +118,7 @@ in
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    mullvad-vpn
     neovim
     wget
     git
